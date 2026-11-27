@@ -1,0 +1,47 @@
+:root {
+  --carbon-950: #0b100f;
+  --carbon-900: #1d2824;
+  --carbon-800: #2b3934;
+  --green-900: #064e3b;
+  --green-400: #34d399;
+  --green-300: #6ee7b7;
+  --haze: #9dbcaf;
+  --paper: #eef3ef;
+  --ink: #06251c;
+  --fs-1: 0.6875rem;
+  --fs-2: 0.8125rem;
+  --fs-3: 1rem;
+  --fs-4: 1.25rem;
+  --fs-5: 1.75rem;
+  --fs-6: 2.75rem;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 16px;
+  --space-4: 32px;
+  --space-5: 64px;
+  --space-6: 112px;
+  --radius: 8px;
+  --font: Montserrat, "Noto Sans Thai", system-ui, sans-serif;
+  --bg: #eef3ef;
+  --surface: #ffffff;
+  --surface-2: #e3ebe6;
+  --fg: #06251c;
+  --fg-quiet: #52695f;
+  --rule: #cbd9d0;
+  --accent: #0b6b4f;
+  --accent-hi: #13855c;
+  --on-accent: #ffffff;
+  --accent-ink: #095a43;
+}
+.dark {
+  --bg: #0b100f;
+  --surface: #1d2824;
+  --surface-2: #2b3934;
+  --fg: #e4f2eb;
+  --fg-quiet: #9dbcaf;
+  --rule: #354740;
+  --accent: #34d399;
+  --accent-hi: #6ee7b7;
+  --on-accent: #0b100f;
+  --accent-ink: #6ee7b7;
+}
