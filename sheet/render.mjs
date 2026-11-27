@@ -6,7 +6,7 @@ import { fileURLToPath } from "node:url";
 const blocks = process.env.BLOCKS;
 if (!blocks) throw new Error("set BLOCKS to a jirathip-dev/blocks checkout with web/dist built");
 const { webkit } = createRequire(join(blocks, "web/package.json"))("playwright");
-const here = fileURLToPath(new URL(".", import.meta.url));
+const repo = fileURLToPath(new URL("..", import.meta.url));
 const BASE = "http://synergy.test/";
 const types = { html: "text/html", js: "text/javascript", css: "text/css", json: "application/json" };
 const browser = await webkit.launch();
@@ -18,7 +18,7 @@ for (const page of ["tokens", "blocks"])
         const url = r.request().url();
         if (!url.startsWith(BASE)) return r.continue();
         const path = url.slice(BASE.length).split("?")[0];
-        const file = path.startsWith("_blocks/") ? join(blocks, "web/dist", path.slice(8)) : join(here, path);
+        const file = path.startsWith("_blocks/") ? join(blocks, "web/dist", path.slice(8)) : join(repo, path);
         try {
           return r.fulfill({ body: readFileSync(file), contentType: types[file.split(".").pop()] ?? "application/octet-stream" });
         } catch {
@@ -26,9 +26,9 @@ for (const page of ["tokens", "blocks"])
         }
       });
       p.on("pageerror", (e) => console.error(page, mode, width, e.message));
-      await p.goto(`${BASE}${page}.html`);
+      await p.goto(`${BASE}sheet/${page}.html`);
       await p.waitForSelector("body[data-ready]", { timeout: 20000 });
-      await p.screenshot({ path: join(here, `${page}-${mode}-${width}.png`), fullPage: true });
+      await p.screenshot({ path: join(repo, "sheet", `${page}-${mode}-${width}.png`), fullPage: true });
       await p.close();
     }
 await browser.close();

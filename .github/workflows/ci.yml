@@ -1,0 +1,25 @@
+name: ci
+on:
+  pull_request:
+  push:
+    branches: [main, staging]
+env:
+  BLOCKS_REV: a42e7570e1bed499cd927b26913ec23d3e7cb2ae
+jobs:
+  tokens:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 24
+      - name: outputs match a fresh build
+        run: node scripts/build.mjs && git diff --exit-code -- dist sheet/tokens.html
+      - name: tokens.css matches the website's token block
+        run: node --test test/*.test.mjs
+      - name: Blocks gate at the pinned rev
+        run: |
+          git init -q "$RUNNER_TEMP/blocks"
+          git -C "$RUNNER_TEMP/blocks" fetch -q --depth 1 https://github.com/jirathip-dev/blocks "$BLOCKS_REV"
+          git -C "$RUNNER_TEMP/blocks" checkout -q FETCH_HEAD
+          BLOCKS="$RUNNER_TEMP/blocks" node scripts/gate.mjs
