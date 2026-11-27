@@ -1,0 +1,25 @@
+{
+  "label": "Synergy dark",
+  "color-scheme": "dark",
+  "tokens": {
+    "--bg": "#0b100f",
+    "--card": "#1d2824",
+    "--edge": "#354740",
+    "--line": "#26332e",
+    "--scrim": "#000000a6",
+    "--fg": "#e4f2eb",
+    "--mute": "#9dbcaf",
+    "--l": "#34d399",
+    "--link": "#34d399",
+    "--g": "#b4c458",
+    "--a": "#e8a65e",
+    "--r": "#f27c84",
+    "--p": "#b8a3e6",
+    "--c": "#6cc4e0",
+    "--fk-l": "#6ee7b7",
+    "--fk-p": "#c9b8f0",
+    "--fk-c": "#8fd3ea",
+    "--fk-g": "#ccd37a",
+    "--fk-a": "#ebc47e"
+  }
+}

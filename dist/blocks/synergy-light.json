@@ -1,0 +1,25 @@
+{
+  "label": "Synergy light",
+  "color-scheme": "light",
+  "tokens": {
+    "--bg": "#eef3ef",
+    "--card": "#ffffff",
+    "--edge": "#cbd9d0",
+    "--line": "#dde7e1",
+    "--scrim": "#06251c66",
+    "--fg": "#06251c",
+    "--mute": "#4a6157",
+    "--l": "#0b6b4f",
+    "--link": "#0b6b4f",
+    "--g": "#5f7514",
+    "--a": "#8c5f0e",
+    "--r": "#b4442f",
+    "--p": "#6e5b9a",
+    "--c": "#1f6f8b",
+    "--fk-l": "#095a43",
+    "--fk-p": "#5c4c84",
+    "--fk-c": "#195d75",
+    "--fk-g": "#4f6210",
+    "--fk-a": "#77510c"
+  }
+}

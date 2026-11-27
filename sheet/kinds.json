@@ -1,0 +1,68 @@
+{
+  "type": "screen",
+  "id": "kinds",
+  "title": "Kinds",
+  "blocks": [
+    {
+      "type": "section",
+      "id": "stats",
+      "header": "Stats",
+      "blocks": [
+        {
+          "type": "stat",
+          "id": "today",
+          "items": [
+            { "label": "Orders today", "value": "1,284" },
+            { "label": "On time", "value": "96.2%" },
+            { "label": "Open tickets", "value": 37, "tone": "bad" },
+            { "label": "Median reply", "value": "4m 10s" }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "id": "rows",
+      "header": "Rows",
+      "blocks": [
+        {
+          "type": "list",
+          "id": "tasks",
+          "rows": [
+            { "type": "row", "id": "oat", "title": "Restock oat milk", "subtitle": { "text": "Supplier did not confirm", "tone": "bad" }, "badge": { "text": "blocked", "tone": "bad" } },
+            { "type": "row", "id": "seal", "title": "Fix freezer door seal", "subtitle": "Waiting on the part" },
+            { "type": "row", "id": "licence", "title": "Renew food licence", "subtitle": { "text": "Due Friday", "tone": "warn" }, "value": "3d" },
+            { "type": "row", "id": "coffee", "title": "Clean coffee machine", "subtitle": "Done 09:12", "badge": { "text": "done", "tone": "ok" } }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "id": "cards",
+      "header": "Cards",
+      "blocks": [
+        {
+          "type": "card",
+          "id": "shift",
+          "title": "Morning · 06:00–14:00",
+          "subtitle": "3 of 4 staff in. Bakery delivery at 07:30.",
+          "buttons": [
+            { "type": "button", "id": "retry", "label": "Retry", "style": "primary", "action": "retry" },
+            { "type": "button", "id": "delete", "label": "Delete", "style": "destructive", "action": "delete" }
+          ]
+        },
+        { "type": "card", "id": "failed", "tone": "bad", "title": "Payment failed for order #4821", "subtitle": "The card was declined twice." }
+      ]
+    },
+    {
+      "type": "section",
+      "id": "controls",
+      "header": "Form",
+      "blocks": [
+        { "type": "chips", "id": "filter", "name": "filter", "options": [{ "value": "all", "label": "all" }, { "value": "ok", "label": "ok" }, { "value": "warn", "label": "warn" }], "selected": ["all"] },
+        { "type": "form", "id": "cafe", "action": "save", "fields": [{ "type": "text", "name": "name", "label": "Name", "value": "Corner Café" }, { "type": "text", "name": "email", "label": "Email" }] }
+      ]
+    }
+  ]
+}

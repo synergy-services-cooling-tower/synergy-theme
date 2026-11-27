@@ -1,0 +1,20 @@
+name: release
+on:
+  push:
+    branches: [main]
+permissions:
+  contents: write
+jobs:
+  tag:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+      - name: tag the source version once
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          tag="v$(node -p 'require("./tokens/synergy.json").version')"
+          git rev-parse -q --verify "refs/tags/$tag" && exit 0
+          gh release create "$tag" --target "$GITHUB_SHA" --title "$tag" --notes "Pin this tag: dist/blocks/ for Blocks apps, dist/tokens.css for plain CSS."
